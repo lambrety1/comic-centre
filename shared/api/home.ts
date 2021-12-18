@@ -26,7 +26,10 @@ export const getHome = async (): Promise<any> => {
         .querySelector("a")
         ?.getAttribute("href")
         ?.split("/")
-        .slice(-1)[0],
+        .slice(-1)[0]
+        .split("-")
+        .slice(0, -1)
+        .join("-"),
     }));
 
     return {

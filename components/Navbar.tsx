@@ -10,7 +10,7 @@ const Navbar: NextPage = () => {
     <div
       className={`${
         isActive ? "h-28" : "h-14"
-      } md:!h-14 bg-nav w-screen flex flex-col md:flex-row justify-around md:justify-between items-stretch md:items-center px-[5vw]`}
+      } md:!h-14 bg-nav flex flex-col md:flex-row justify-around md:justify-between items-stretch md:items-center px-[5vw]`}
     >
       <div className="flex items-center justify-between">
         <Link href="/">

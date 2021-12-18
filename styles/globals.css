@@ -9,6 +9,6 @@
 }
 
 body {
-  @apply bg-primary text-gray-300 overflow-x-hidden;
+  @apply bg-primary text-gray-300;
   font-family: Arial, Helvetica, sans-serif;
 }

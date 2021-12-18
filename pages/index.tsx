@@ -2,7 +2,8 @@ import type { GetStaticProps, NextPage } from "next";
 
 import { HomeProps } from "../shared/types";
 import Image from "next/image";
-import { getHome } from "../shared/api/homeAPI";
+import Link from "next/link";
+import { getHome } from "../shared/api/home";
 
 const Home: NextPage<HomeProps> = ({ data }) => {
   return (
@@ -17,25 +18,27 @@ const Home: NextPage<HomeProps> = ({ data }) => {
             }}
           >
             {item.items.map((child) => (
-              <div className="flex flex-col items-stretch" key={child.id}>
-                <Image
-                  src={child.cover}
-                  height={300}
-                  width={200}
-                  layout="responsive"
-                  objectFit="cover"
-                  quality={100}
-                  placeholder="blur"
-                  blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAAEsAQMAAAC8NG79AAAABlBMVEXMzMwAAADTMzNkAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAHklEQVRYhe3BMQEAAADCoPVPbQdvoAAAAAAAAADgNx54AAHw+DPXAAAAAElFTkSuQmCC"
-                  alt={child.title}
-                />
-                <h1 className="max-w-full whitespace-nowrap overflow-hidden overflow-ellipsis text-center">
-                  {child.title}
-                </h1>
-                <p className="max-w-full whitespace-nowrap overflow-hidden overflow-ellipsis text-center">
-                  {child.chapter}
-                </p>
-              </div>
+              <Link href={`/comic/${child.id}`} key={child.id}>
+                <a className="flex flex-col items-stretch">
+                  <Image
+                    src={child.cover}
+                    height={300}
+                    width={200}
+                    layout="responsive"
+                    objectFit="cover"
+                    quality={100}
+                    placeholder="blur"
+                    blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAAEsAQMAAAC8NG79AAAABlBMVEXMzMwAAADTMzNkAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAHklEQVRYhe3BMQEAAADCoPVPbQdvoAAAAAAAAADgNx54AAHw+DPXAAAAAElFTkSuQmCC"
+                    alt={child.title}
+                  />
+                  <h1 className="max-w-full whitespace-nowrap overflow-hidden overflow-ellipsis text-center">
+                    {child.title}
+                  </h1>
+                  <p className="max-w-full whitespace-nowrap overflow-hidden overflow-ellipsis text-center">
+                    {child.chapter}
+                  </p>
+                </a>
+              </Link>
             ))}
           </div>
         </div>
