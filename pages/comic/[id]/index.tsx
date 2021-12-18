@@ -1,7 +1,6 @@
 import type { GetServerSideProps, NextPage } from "next";
 
 import type { ComicProps } from "../../../shared/types";
-import Image from "next/image";
 import Link from "next/link";
 import { getComicInfo } from "../../../shared/api/comic";
 
@@ -10,11 +9,8 @@ const Comic: NextPage<ComicProps> = ({ info, id }) => {
     <div className="xl:px-[10vw] px-[5vw] py-10 flex flex-col items-stretch gap-6 md:gap-10">
       <div className="flex flex-col items-center md:flex-row md:items-start gap-8">
         <div className="flex-shrink-0">
-          <Image
-            height={300}
-            width={200}
-            objectFit="cover"
-            quality={100}
+          <img
+            className="h-[300px] w-[200px] object-cover"
             src={info.cover}
             alt=""
           />
