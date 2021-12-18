@@ -1,10 +1,26 @@
-import Image from "next/image";
+import { FormEvent, useState } from "react";
+
 import Link from "next/link";
 import type { NextPage } from "next";
-import { useState } from "react";
+import { useRouter } from "next/router";
 
 const Navbar: NextPage = () => {
   const [isActive, setIsActive] = useState(false);
+  const [inputValue, setInputValue] = useState("");
+
+  const router = useRouter();
+
+  const handleFormSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (inputValue.trim())
+      router.push({
+        pathname: "/search",
+        query: {
+          q: inputValue.trim(),
+        },
+      });
+  };
 
   return (
     <div
@@ -15,7 +31,7 @@ const Navbar: NextPage = () => {
       <div className="flex items-center justify-between">
         <Link href="/">
           <a className="flex items-center justify-start gap-3">
-            <Image priority src="/icon.png" height={24} width={24} alt="Icon" />
+            <img src="/icon.png" className="w-6 h-6" alt="icon" />
             <h1 className="text-2xl font-bold">
               <span className="text-link">Comic</span>Centre
             </h1>
@@ -30,11 +46,16 @@ const Navbar: NextPage = () => {
           ></i>
         </button>
       </div>
-      <form className={`${isActive ? "flex" : "hidden"} md:!flex`}>
+      <form
+        onSubmit={handleFormSubmit}
+        className={`${isActive ? "flex" : "hidden"} md:!flex`}
+      >
         <input
           type="text"
           className="h-8 px-3 flex-grow text-black outline-none"
           placeholder="Search..."
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
         />
         <button className="flex-shrink-0 flex justify-center items-center h-8 w-8 bg-[#DEDFE0]">
           <i className="fas fa-search text-black text-lg"></i>

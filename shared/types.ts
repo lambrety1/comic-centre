@@ -43,3 +43,19 @@ export interface ChapterProps {
     }[];
   };
 }
+
+export interface GridItem {
+  id: string;
+  cover: string;
+  title: string;
+  chapter: string;
+}
+
+export interface GridProps {
+  items: GridItem[];
+}
+
+export interface SearchProps {
+  keyword: string;
+  items: GridItem[];
+}

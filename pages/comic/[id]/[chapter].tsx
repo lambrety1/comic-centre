@@ -35,7 +35,6 @@ export const getServerSideProps: GetServerSideProps = async ({
   query,
 }) => {
   try {
-    console.log(params?.chapter);
     const chapter = await getChapterInfo(
       params?.id as string,
       params?.chapter as string,
