@@ -26,7 +26,7 @@ const Home: NextPage<HomeProps> = ({ data }) => {
                   objectFit="cover"
                   quality={100}
                   placeholder="blur"
-                  blurDataURL="https://dummyimage.com/200x300&text=%20"
+                  blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAAEsAQMAAAC8NG79AAAABlBMVEXMzMwAAADTMzNkAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAHklEQVRYhe3BMQEAAADCoPVPbQdvoAAAAAAAAADgNx54AAHw+DPXAAAAAElFTkSuQmCC"
                   alt={child.title}
                 />
                 <h1 className="max-w-full whitespace-nowrap overflow-hidden overflow-ellipsis text-center">
