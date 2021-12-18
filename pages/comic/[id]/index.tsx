@@ -58,7 +58,7 @@ const Comic: NextPage<ComicProps> = ({ info, id }) => {
         </p>
       )}
 
-      <div className="border border-gray-700 h-80 overflow-auto">
+      <div className="border border-gray-700 max-h-[320px] overflow-auto">
         {info.chapters.map((chapter) => (
           <Link
             href={{
